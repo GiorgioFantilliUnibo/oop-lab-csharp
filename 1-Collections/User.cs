@@ -6,8 +6,9 @@ namespace Collections
     {
         public User(string fullName, string username, uint? age)
         {
-            throw new NotImplementedException("TODO ensure that username is not null");
-            throw new NotImplementedException("TODO initialise this instance of user accordingly");
+            this.Username = username ?? throw new ArgumentNullException(nameof(username));
+            this.FullName = fullName;
+            this.Age = age;
         }
         
         public uint? Age { get; }
