@@ -47,7 +47,9 @@ namespace Collections
         /// <inheritdoc cref="ISocialNetworkUser{TUser}.GetFollowedUsersInGroup(string)"/>
         public ICollection<TUser> GetFollowedUsersInGroup(string group)
         {
-            throw new NotImplementedException("TODO construct and return a collection containing of all users followed by the current users, in group");
+            var ret = new List<TUser>();
+            if (this._followedUsers.ContainsKey(group)) ret.AddRange(this._followedUsers[group]);
+            return ret;
         }
     }
 }
