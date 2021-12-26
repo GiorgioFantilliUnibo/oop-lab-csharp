@@ -31,6 +31,48 @@ namespace Collections
 
         /// <inheritdoc cref="IUser.IsAgeDefined"/>
         public bool IsAgeDefined => this.Age != null;
-        
+
+        /// <summary>
+        /// Get the string rappresentation of the generic user.
+        /// </summary>
+        /// <retuns>a string representing the user.</retuns>
+        public override string ToString() => $"{nameof(User)}[{nameof(Username)}: {this.Username}, {nameof(FullName)}: {this.FullName}," +
+                                             $" {nameof(Age)}: {this.Age}]";
+
+        /// <summary>
+        /// Determines whether two instances of the <see cref="IUser"/> interface are equal.
+        /// </summary>
+        /// <param name="other">the instances of <see cref="IUser"/> to compare.</param>
+        /// <returns>true if the two instaces are equal, false otherwise</returns>
+        public bool Equals(IUser other)
+        {
+            return this.Equals(other as User);
+        }
+
+        /// <summary>
+        /// Determines whether two instances of the <see cref="User"/> class are equal.
+        /// </summary>
+        /// <param name="other">the instances of <see cref="User"/> to compare.</param>
+        /// <returns>true if the two instaces are equal, false otherwise</returns>
+        public bool Equals(User other)
+        {
+            return this == other || (this.Username.Equals(other.Username) &&
+                                     this.FullName.Equals(other.FullName) &&
+                                     this.Age.Equals(other.Age));
+        }
+
+        /// <inheritdoc cref="object.Equals(object?)"/>
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj.GetType() != this.GetType()) return false;
+            return this.Equals(obj as User);
+        }
+
+        /// <inheritdoc cref="object.GetHashCode()"/>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.Username, this.FullName, this.Age);
+        }
     }
 }
