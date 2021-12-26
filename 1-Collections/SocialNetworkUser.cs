@@ -3,15 +3,24 @@ using System.Collections.Generic;
 
 namespace Collections
 {
+    /// <inheritdoc cref="ISocialNetworkUser{TUser}"/>
     public class SocialNetworkUser<TUser> : User, ISocialNetworkUser<TUser>
         where TUser : IUser
     {
         private readonly IDictionary<string, ISet<TUser>> _followedUsers = new Dictionary<string, ISet<TUser>>();
 
+        /// <summary>
+        /// Build a new <see cref="SocialNetworkUser{TUser}"/> class.
+        /// </summary>
+        /// <param name="fullName">The first plus last name of the user, it could be <c>null</c>.</param>
+        /// <param name="username">The username of this user, cannot be <c>null</c>.</param>
+        /// <param name="age">The age of the user, it could be <c>null</c>.</param>
+        /// <exception cref="ArgumentNullException">thrown if <paramref name="username"/> is <c>null</c>.</exception>
         public SocialNetworkUser(string fullName, string username, uint? age) : base(fullName, username, age)
         {
         }
 
+        /// <inheritdoc cref="ISocialNetworkUser{TUser}.AddFollowedUser(string, TUser)"/>
         public bool AddFollowedUser(string group, TUser user)
         {
             if (this._followedUsers.ContainsKey(group))
@@ -27,6 +36,7 @@ namespace Collections
             }
         }
 
+        /// <inheritdoc cref="ISocialNetworkUser{TUser}.FollowedUsers"/>
         public IList<TUser> FollowedUsers
         {
             get
@@ -35,6 +45,7 @@ namespace Collections
             }
         }
 
+        /// <inheritdoc cref="ISocialNetworkUser{TUser}.GetFollowedUsersInGroup(string)"/>
         public ICollection<TUser> GetFollowedUsersInGroup(string group)
         {
             throw new NotImplementedException("TODO construct and return a collection containing of all users followed by the current users, in group");
