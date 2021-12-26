@@ -14,7 +14,17 @@ namespace Collections
 
         public bool AddFollowedUser(string group, TUser user)
         {
-            throw new NotImplementedException("TODO add user to the provided group. Return false if the user was already in the group");
+            if (this._followedUsers.ContainsKey(group))
+            {
+                return this._followedUsers[group].Add(user);
+            }
+            else
+            {
+                var set = new HashSet<TUser>();
+                set.Add(user);
+                this._followedUsers[group] = set;
+                return true;
+            }
         }
 
         public IList<TUser> FollowedUsers
