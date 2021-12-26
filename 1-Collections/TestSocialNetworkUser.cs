@@ -24,10 +24,14 @@ namespace Collections
             Assert.IsTrue(dwashington.IsAgeDefined);
             Assert.IsTrue(mgladwell.IsAgeDefined);
             Assert.IsTrue(ntaleb.IsAgeDefined);
-            
-            Assert.AreEqual(0, kbacon.GetFollowedUsersInGroup("Malcom").Count);
-            Assert.AreEqual(0, mgladwell.GetFollowedUsersInGroup("Close Friends").Count);
-            Assert.AreEqual(2, dwashington.GetFollowedUsersInGroup("writers").Count);
+
+            Assert.AreEqual(0, kbacon.FollowedUsers.Count);
+            Assert.AreEqual(1, mgladwell.FollowedUsers.Count);
+            Assert.AreEqual(4, dwashington.FollowedUsers.Count);
+
+            //Assert.AreEqual(0, kbacon.GetFollowedUsersInGroup("Malcom").Count);
+            //Assert.AreEqual(0, mgladwell.GetFollowedUsersInGroup("Close Friends").Count);
+            //Assert.AreEqual(2, dwashington.GetFollowedUsersInGroup("writers").Count);
         }
     }
 }
