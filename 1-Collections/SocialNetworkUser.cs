@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Collections
 {
@@ -37,13 +38,12 @@ namespace Collections
         }
 
         /// <inheritdoc cref="ISocialNetworkUser{TUser}.FollowedUsers"/>
-        public IList<TUser> FollowedUsers
-        {
-            get
-            {
-                throw new NotImplementedException("TODO construct and return the list of all users followed by the current users, in all groups");
-            }
-        }
+        public IList<TUser> FollowedUsers => this._followedUsers.Values
+                                                                .Select(set => set.ToList())
+                                                                .Aggregate(new List<TUser>(), (list, set) => {
+                                                                    list.AddRange(set);
+                                                                    return list;
+                                                                });
 
         /// <inheritdoc cref="ISocialNetworkUser{TUser}.GetFollowedUsersInGroup(string)"/>
         public ICollection<TUser> GetFollowedUsersInGroup(string group)
