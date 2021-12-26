@@ -13,6 +13,7 @@ namespace Collections
         /// <param name="fullName">The first plus last name of the user, it could be <c>null</c>.</param>
         /// <param name="username">The username of this user, cannot be <c>null</c>.</param>
         /// <param name="age">The age of the user, it could be <c>null</c>.</param>
+        /// <exception cref="ArgumentNullException">thrown if <paramref name="username"/> is <c>null</c>.</exception>
         public User(string fullName, string username, uint? age)
         {
             this.Username = username ?? throw new ArgumentNullException(nameof(username));
