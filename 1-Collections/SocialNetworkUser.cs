@@ -39,7 +39,6 @@ namespace Collections
 
         /// <inheritdoc cref="ISocialNetworkUser{TUser}.FollowedUsers"/>
         public IList<TUser> FollowedUsers => this._followedUsers.Values
-                                                                .Select(set => set.ToList())
                                                                 .Aggregate(new List<TUser>(), (list, set) => {
                                                                     list.AddRange(set);
                                                                     return list;
