@@ -65,10 +65,7 @@ namespace DelegatesAndEvents
         public bool Contains(TItem item) => this._list.Contains(item);
 
         /// <inheritdoc cref="ICollection{T}.CopyTo" />
-        public void CopyTo(TItem[] array, int arrayIndex)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void CopyTo(TItem[] array, int arrayIndex) => this._list.CopyTo(array, arrayIndex);
 
         /// <inheritdoc cref="ICollection{T}.Remove" />
         public bool Remove(TItem item)
