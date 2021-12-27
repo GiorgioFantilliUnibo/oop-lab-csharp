@@ -55,7 +55,10 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="ICollection{T}.Clear" />
         public void Clear()
         {
-            throw new System.NotImplementedException();
+            var tempList = new List<TItem>(this._list);
+            this._list.Clear();
+            for (int i = 0; i < tempList.Count; i++)
+                ElementRemoved(this, tempList[i], i);
         }
 
         /// <inheritdoc cref="ICollection{T}.Contains" />
