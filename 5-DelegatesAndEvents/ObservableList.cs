@@ -27,8 +27,8 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="IList{T}.this" />
         public TItem this[int index]
         {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
+            get => this.list[index];
+            set => this.list[index] = value;
         }
 
         /// <inheritdoc cref="IEnumerable{T}.GetEnumerator" />
