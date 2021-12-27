@@ -82,8 +82,7 @@ namespace ExtensionMethods
         /// <inheritdoc cref="object.GetHashCode"/>
         public override int GetHashCode()
         {
-            // TODO improve
-            return base.GetHashCode();
+            return HashCode.Combine(this.Real, this.Imaginary);
         }
     }
 }
