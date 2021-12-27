@@ -87,10 +87,7 @@ namespace OperatorsOverloading
         /// <see langword="true"/> if the first list is longer or equal to the second,
         /// <see langword="false"/> otherwise.
         /// </returns>
-        public static bool operator >=(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator >=(List<TValue> list1, List<TValue> list2) => list1.Length >= list2.Length;
 
         /// <summary>
         /// Determines whether the <see cref="Length"/> of the <paramref name="list1"/> is lower or equal
@@ -102,10 +99,7 @@ namespace OperatorsOverloading
         /// <see langword="true"/> if the first list is shorter or equal to the second,
         /// <see langword="false"/> otherwise.
         /// </returns>
-        public static bool operator <=(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator <=(List<TValue> list1, List<TValue> list2) => list1.Length <= list2.Length;
 
         /// <summary>
         /// Determines whether the <paramref name="list1"/> is shorter than the <paramref name="list2"/>.
@@ -115,10 +109,7 @@ namespace OperatorsOverloading
         /// <returns>
         /// <see langword="true"/> if the first list is shorter than the second, <see langword="false"/> otherwise.
         /// </returns>
-        public static bool operator <(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator <(List<TValue> list1, List<TValue> list2) => list1.Length < list2.Length;
 
         /// <summary>
         /// Determines whether the <paramref name="list1"/> is longer than the <paramref name="list2"/>.
@@ -128,10 +119,7 @@ namespace OperatorsOverloading
         /// <returns>
         /// <see langword="true"/> if the first list is longer than the second, <see langword="false"/> otherwise.
         /// </returns>
-        public static bool operator >(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator >(List<TValue> list1, List<TValue> list2) => list1.Length > list2.Length;
 
         /// <summary>
         /// Chains the two lists together by appending <paramref name="list2"/> to <paramref name="list1"/>.
