@@ -48,7 +48,8 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="ICollection{T}.Add" />
         public void Add(TItem item)
         {
-            throw new System.NotImplementedException();
+            this._list.Add(item);
+            ElementInserted(this, item, this.Count - 1);
         }
 
         /// <inheritdoc cref="ICollection{T}.Clear" />
