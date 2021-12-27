@@ -86,10 +86,11 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="IList{T}.IndexOf" />
         public int IndexOf(TItem item) => this._list.IndexOf(item);
 
-        /// <inheritdoc cref="IList{T}.RemoveAt" />
+        /// <inheritdoc cref="IList{T}.Insert" />
         public void Insert(int index, TItem item)
         {
-            throw new System.NotImplementedException();
+            this._list.Insert(index, item);
+            ElementInserted(this, item, index);
         }
 
         /// <inheritdoc cref="IList{T}.RemoveAt" />
