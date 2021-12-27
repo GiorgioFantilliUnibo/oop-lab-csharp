@@ -32,10 +32,7 @@ namespace DelegatesAndEvents
         }
 
         /// <inheritdoc cref="IEnumerable{T}.GetEnumerator" />
-        public IEnumerator<TItem> GetEnumerator()
-        {
-            throw new System.NotImplementedException();
-        }
+        public IEnumerator<TItem> GetEnumerator() => this._list.GetEnumerator();
 
         /// <inheritdoc cref="IEnumerable.GetEnumerator" />
         IEnumerator IEnumerable.GetEnumerator()
