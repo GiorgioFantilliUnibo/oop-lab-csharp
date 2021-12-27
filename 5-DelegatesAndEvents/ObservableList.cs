@@ -7,7 +7,7 @@ namespace DelegatesAndEvents
     /// <inheritdoc cref="IObservableList{T}" />
     public class ObservableList<TItem> : IObservableList<TItem>
     {
-        private readonly IList<TItem> list = new List<TItem>();
+        private readonly IList<TItem> _list = new List<TItem>();
 
         /// <inheritdoc cref="IObservableList{T}.ElementInserted" />
         public event ListChangeCallback<TItem> ElementInserted;
@@ -19,16 +19,16 @@ namespace DelegatesAndEvents
         public event ListElementChangeCallback<TItem> ElementChanged;
 
         /// <inheritdoc cref="ICollection{T}.Count" />
-        public int Count => this.list.Count;
+        public int Count => this._list.Count;
 
         /// <inheritdoc cref="ICollection{T}.IsReadOnly" />
-        public bool IsReadOnly => this.list.IsReadOnly;
+        public bool IsReadOnly => this._list.IsReadOnly;
 
         /// <inheritdoc cref="IList{T}.this" />
         public TItem this[int index]
         {
-            get => this.list[index];
-            set => this.list[index] = value;
+            get => this._list[index];
+            set => this._list[index] = value;
         }
 
         /// <inheritdoc cref="IEnumerable{T}.GetEnumerator" />
