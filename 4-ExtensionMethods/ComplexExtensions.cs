@@ -87,9 +87,7 @@ namespace ExtensionMethods
         /// </remarks>
         /// <param name="c1">the complex operand.</param>
         /// <returns>the complex reciprocal.</returns>
-        public static IComplex Reciprocal(this IComplex c1)
-        {
-            throw new NotImplementedException();
-        }
+        public static IComplex Reciprocal(this IComplex c1) =>
+            c1.Conjugate().Divide(c1.Modulus * c1.Modulus);
     }
 }
