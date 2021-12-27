@@ -19,7 +19,7 @@ namespace Exceptions
 
         public object GetFirst()
         {
-            // TODO ensure objects can only be retrieve if the item is queue is not empty
+            if (this.Count == 0) throw new EmptyQueueException("No more items, the queue is empty.");
             var first = _items[_firstIndex % Capacity];
             _firstIndex++;
             return first;
