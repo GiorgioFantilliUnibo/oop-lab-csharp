@@ -5,6 +5,8 @@ namespace ExtensionMethods
     /// <inheritdoc cref="IComplex"/>
     public class Complex : IComplex
     {
+        private const double Tolerance = 1E-7;
+
         private readonly double re;
         private readonly double im;
 
@@ -60,14 +62,21 @@ namespace ExtensionMethods
         /// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
         public bool Equals(IComplex other)
         {
-            throw new System.NotImplementedException();
+            if (other == null)
+                return false;
+            else if (this == other)
+                return true;
+            else
+                return Math.Abs(this.Real - other.Real) < Tolerance &&
+                       Math.Abs(this.Imaginary - other.Imaginary) < Tolerance;
         }
 
         /// <inheritdoc cref="object.Equals(object?)"/>
         public override bool Equals(object obj)
         {
-            // TODO improve
-            return base.Equals(obj);
+            if (obj == null) return false;
+            if (!(obj is IComplex)) return false;
+            return this.Equals(obj as IComplex);
         }
 
         /// <inheritdoc cref="object.GetHashCode"/>
