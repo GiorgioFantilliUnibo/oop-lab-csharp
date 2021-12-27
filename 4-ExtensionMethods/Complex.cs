@@ -34,8 +34,27 @@ namespace ExtensionMethods
         /// <inheritdoc cref="IComplex.ToString"/>
         public override string ToString()
         {
-            // TODO improve
-            return base.ToString();
+            string re = this.Real.ToString();
+            if (this.Imaginary == 0.0) return re;
+
+            string sign = "";
+            if (this.Imaginary < 0)
+            {
+                sign = "-";
+            }
+            else if (re != "0")
+            {
+                sign = "+";
+            }
+            if (re == "0") re = "";
+
+            string im = Math.Abs(this.Imaginary).ToString();
+            if (im == "1")
+                im = sign + "i";
+            else
+                im = sign + im + "i";
+
+            return re + im;
         }
 
         /// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
