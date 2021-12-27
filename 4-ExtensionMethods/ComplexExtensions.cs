@@ -33,7 +33,7 @@ namespace ExtensionMethods
         /// <returns>the product.</returns>
         public static IComplex Multiply(this IComplex c1, IComplex c2) =>
             new Complex(c1.Real * c2.Real - c1.Imaginary * c2.Imaginary,
-                        c1.Real * c2.Imaginary - c1.Imaginary * c2.Real);
+                        c1.Real * c2.Imaginary + c1.Imaginary * c2.Real);
 
         /// <summary>
         /// Multiply a complex with a scalar.
