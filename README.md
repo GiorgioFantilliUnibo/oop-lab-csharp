@@ -32,7 +32,7 @@ Un tentativo di inserire un elemento in una coda piena, deve produrre una `FullQ
 Invece, un tentativo di prelevare un elemento da una cosa vuota, deve produrre una `EmptyQueueException`.
 
 
-Scopo dell'esercizio è completare l'implementazione della classe `FixedSizeQueue`, assicurandosi di lanciare correttamente o due tipi di eccezione forniti: `EmptyQueueException` e `FullQueueException`.
+Scopo dell'esercizio è completare l'implementazione della classe `FixedSizeQueue`, assicurandosi di lanciare correttamente i due tipi di eccezione forniti: `EmptyQueueException` e `FullQueueException`.
 
 Il test contenuto in `TestFixedSizeQueue.cs` verifica e chiarisce il comportamento atteso per le entità soprariportate.
 L'esercizio si può considerare concluso quando tutti i test terminano con successo.
