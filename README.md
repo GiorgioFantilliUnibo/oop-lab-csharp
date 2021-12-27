@@ -83,7 +83,7 @@ Gli scopi dell'esercizio sono:
 
 - Implementare l'interfaccia `IComplex` nella/nelle maniere che si ritengono migliori
 
-- Implementare le operazioni sui numeri complessi, le cui firme sono presenti nella classe statica nella classe `ComplexExtensions`
+- Implementare le operazioni sui numeri complessi, le cui firme sono presenti nella classe statica `ComplexExtensions`.
 
 Il test contenuto in `ComplexExtensionsTests.cs` tenta di chiarire il comportamento atteso per i metodi estensione suddetti.
 L'esercizio si può considerare concluso quando tutti i test terminano con successo.
