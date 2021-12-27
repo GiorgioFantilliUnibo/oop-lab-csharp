@@ -62,10 +62,7 @@ namespace DelegatesAndEvents
         }
 
         /// <inheritdoc cref="ICollection{T}.Contains" />
-        public bool Contains(TItem item)
-        {
-            throw new System.NotImplementedException();
-        }
+        public bool Contains(TItem item) => this._list.Contains(item);
 
         /// <inheritdoc cref="ICollection{T}.CopyTo" />
         public void CopyTo(TItem[] array, int arrayIndex)
