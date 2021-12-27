@@ -28,7 +28,12 @@ namespace DelegatesAndEvents
         public TItem this[int index]
         {
             get => this._list[index];
-            set => this._list[index] = value;
+            set
+            {
+                var oldElem = this._list[index];
+                this._list[index] = value;
+                ElementChanged(this, value, oldElem, index);
+            }
         }
 
         /// <inheritdoc cref="IEnumerable{T}.GetEnumerator" />
