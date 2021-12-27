@@ -27,7 +27,7 @@ namespace Exceptions
         
         public void AddLast(object item)
         {
-            // TODO ensure objects can only be inserted if the item is queue is not full
+            if (this.Count == this.Capacity) throw new FullQueueException("Can not insert more items, the queue is full.");
             _items[_lastIndex % Capacity] = item;
             _lastIndex++;
         }
