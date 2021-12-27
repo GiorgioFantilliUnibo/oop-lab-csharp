@@ -70,7 +70,17 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="ICollection{T}.Remove" />
         public bool Remove(TItem item)
         {
-            throw new System.NotImplementedException();
+            var index = this._list.IndexOf(item);
+            if (index != -1)
+            {
+                this._list.RemoveAt(index);
+                ElementRemoved(this, item, index);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <inheritdoc cref="IList{T}.IndexOf" />
