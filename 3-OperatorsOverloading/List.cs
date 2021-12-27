@@ -36,30 +36,21 @@ namespace OperatorsOverloading
         /// </summary>
         /// <param name="enumerable">the array of elements to put on the list.</param>
         /// <returns>a new list with the given elements.</returns>
-        public static implicit operator List<TValue>(TValue[] enumerable)
-        {
-            throw new NotImplementedException();
-        }
+        public static implicit operator List<TValue>(TValue[] enumerable) => List.From(enumerable as IEnumerable<TValue>);
 
         /// <summary>
         /// Converts the given element into a new list implicitly.
         /// </summary>
         /// <param name="element">the element to put on the list.</param>
         /// <returns>a new list with only the given element.</returns>
-        public static implicit operator List<TValue>(TValue element)
-        {
-            throw new NotImplementedException();
-        }
+        public static implicit operator List<TValue>(TValue element) => List.From(element);
 
         /// <summary>
         /// Converts the given list into a new array explicitly.
         /// </summary>
         /// <param name="list">the list to transform.</param>
         /// <returns>an array containing the elements of the list.</returns>
-        public static explicit operator TValue[](List<TValue> list)
-        {
-            throw new NotImplementedException();
-        }
+        public static explicit operator TValue[](List<TValue> list) => list.ToFlat().ToArray();
 
         /// <summary>
         /// Determines whether two lists are equal by comparing each of the elements of the lists.
