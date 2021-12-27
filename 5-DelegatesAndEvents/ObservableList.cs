@@ -7,6 +7,8 @@ namespace DelegatesAndEvents
     /// <inheritdoc cref="IObservableList{T}" />
     public class ObservableList<TItem> : IObservableList<TItem>
     {
+        private readonly IList<TItem> list = new List<TItem>();
+
         /// <inheritdoc cref="IObservableList{T}.ElementInserted" />
         public event ListChangeCallback<TItem> ElementInserted;
 
