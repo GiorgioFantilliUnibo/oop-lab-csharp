@@ -63,7 +63,8 @@ namespace OperatorsOverloading
         /// </returns>
         public static bool operator ==(List<TValue> list1, List<TValue> list2)
         {
-            throw new NotImplementedException();
+            if (list1.Length != list2.Length) return false;
+            return ReferenceEquals(list1, list2) || Enumerable.SequenceEqual(list1.ToFlat(), list2.ToFlat());
         }
 
         /// <summary>
@@ -74,10 +75,7 @@ namespace OperatorsOverloading
         /// <returns>
         /// <see langword="true"/> if the two source lists are not equal; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool operator !=(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator !=(List<TValue> list1, List<TValue> list2) => !(list1 == list2);
 
         /// <summary>
         /// Determines whether the <see cref="Length"/> of the <paramref name="list1"/> is greater or equal
