@@ -32,7 +32,7 @@ namespace DelegatesAndEvents
             {
                 var oldElem = this._list[index];
                 this._list[index] = value;
-                ElementChanged(this, value, oldElem, index);
+                this.ElementChanged?.Invoke(this, value, oldElem, index);
             }
         }
 
@@ -49,7 +49,7 @@ namespace DelegatesAndEvents
         public void Add(TItem item)
         {
             this._list.Add(item);
-            ElementInserted(this, item, this.Count - 1);
+            this.ElementInserted?.Invoke(this, item, this._list.Count - 1);
         }
 
         /// <inheritdoc cref="ICollection{T}.Clear" />
@@ -58,7 +58,7 @@ namespace DelegatesAndEvents
             var tempList = new List<TItem>(this._list);
             this._list.Clear();
             for (int i = 0; i < tempList.Count; i++)
-                ElementRemoved(this, tempList[i], i);
+                this.ElementRemoved?.Invoke(this, tempList[i], i);
         }
 
         /// <inheritdoc cref="ICollection{T}.Contains" />
@@ -74,7 +74,7 @@ namespace DelegatesAndEvents
             if (index != -1)
             {
                 this._list.RemoveAt(index);
-                ElementRemoved(this, item, index);
+                this.ElementRemoved?.Invoke(this, item, index);
                 return true;
             }
             else
@@ -90,7 +90,7 @@ namespace DelegatesAndEvents
         public void Insert(int index, TItem item)
         {
             this._list.Insert(index, item);
-            ElementInserted(this, item, index);
+            this.ElementInserted?.Invoke(this, item, index);
         }
 
         /// <inheritdoc cref="IList{T}.RemoveAt" />
@@ -98,7 +98,7 @@ namespace DelegatesAndEvents
         {
             var item = this._list[index];
             this._list.RemoveAt(index);
-            ElementRemoved(this, item, index);
+            this.ElementRemoved?.Invoke(this, item, index);
         }
 
         /// <inheritdoc cref="object.Equals(object?)" />
