@@ -119,17 +119,14 @@ namespace DelegatesAndEvents
         }
 
         /// <inheritdoc cref="object.GetHashCode" />
-        public override int GetHashCode()
-        {
-            // TODO improve
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => this._list.GetHashCode();
 
         /// <inheritdoc cref="object.ToString" />
         public override string ToString()
         {
-            // TODO improve
-            return base.ToString();
+            return $"{nameof(ObservableList<TItem>)}["
+                   + string.Join(", ", this._list)
+                   + "]";
         }
     }
 }
