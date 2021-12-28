@@ -96,7 +96,9 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="IList{T}.RemoveAt" />
         public void RemoveAt(int index)
         {
-            throw new System.NotImplementedException();
+            var item = this._list[index];
+            this._list.RemoveAt(index);
+            ElementRemoved(this, item, index);
         }
 
         /// <inheritdoc cref="object.Equals(object?)" />
