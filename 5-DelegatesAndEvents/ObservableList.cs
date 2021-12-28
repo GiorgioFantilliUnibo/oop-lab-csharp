@@ -104,8 +104,18 @@ namespace DelegatesAndEvents
         /// <inheritdoc cref="object.Equals(object?)" />
         public override bool Equals(object obj)
         {
-            // TODO improve
-            return base.Equals(obj);
+            if (obj == null) return false;
+            if (obj.GetType() != this.GetType()) return false;
+            return this.Equals(obj as ObservableList<TItem>);
+        }
+
+        /// <summary>
+        /// Compare two istance of <see cref="ObservableList{TItem}"/> class.
+        /// </summary>
+        /// <returns>true if the two instaces are equal, false otherwise</returns>
+        public bool Equals(ObservableList<TItem> other)
+        {
+            return this._list.Equals(other._list);
         }
 
         /// <inheritdoc cref="object.GetHashCode" />
